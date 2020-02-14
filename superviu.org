@@ -1,11 +1,11 @@
 * Supercollider
 ** guide
     1. resources
-        - superdirt github :: https://github.com/musikinformatik/SuperDirt
-        - hacks :: 
-          + https://github.com/musikinformatik/SuperDirt/tree/develop/hacks
-          + Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
-        - synth-extras :: Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
+       - superdirt github :: https://github.com/musikinformatik/SuperDirt
+       - hacks :: 
+         + https://github.com/musikinformatik/SuperDirt/tree/develop/hacks
+         + Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
+       - synth-extras :: Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
     2. write basic synthdef
       (
       SynthDef(\superviu, {
@@ -22,11 +22,12 @@
       }).add;
       )
     3. explain NamedControl syntax
+       https://scsynth.org/t/namedcontrol-a-better-way-to-write-synthdef-arguments/186 
     4. explain parameters
     5. explain out
     6. test in TidalCycles
     7. add # detune in tidal
-    7. add 'let detune = pF "detune"'
+    8. add 'let detune = pF "detune"'
     9. add width parameter
     10. let them play
 ** finished code
