@@ -1,0 +1,60 @@
+* Supercollider
+** guide
+    1. resources
+        - superdirt github :: https://github.com/musikinformatik/SuperDirt
+        - hacks :: 
+          + https://github.com/musikinformatik/SuperDirt/tree/develop/hacks
+          + Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
+        - synth-extras :: Platform.userAppSupportDir ++ "/Users/roger/Library/Application Support/SuperCollider/downloaded-quarks/SuperDirt/library/"
+    2. write basic synthdef
+      (
+      SynthDef(\superviu, {
+        var out = \out.kr(0);
+        var pan = \pan.kr(0);
+        var sustain = \sustain.kr(1);
+        var freq = \freq.kr(440);
+        var amp = \amp.kr(440);
+        var env = EnvGen.ar(Env.linen(0.002, 0.996, 0.002, 1,-3), timeScale:sustain, doneAction:2);
+
+        var sound = VarSaw.ar(freq);
+
+        OffsetOut.ar(out, DirtPan.ar(sound, ~dirt.numChannels, pan, env))
+      }).add;
+      )
+    3. explain NamedControl syntax
+    4. explain parameters
+    5. explain out
+    6. test in TidalCycles
+    7. add # detune in tidal
+    7. add 'let detune = pF "detune"'
+    9. add width parameter
+    10. let them play
+** finished code
+  (
+  SynthDef(\superviu, {
+    var out = \out.kr(0);
+    var pan = \pan.kr(0);
+    var sustain = \sustain.kr(1);
+    var freq = \freq.kr(440);
+    var amp = \amp.kr(440);
+    var env = EnvGen.ar(Env.linen(0.002, 0.996, 0.002, 1,-3), timeScale:sustain, doneAction:2);
+
+    var detune = \detune.kr(0);
+    var width = \width.kr(0.5);
+
+    var sound = VarSaw.ar(freq + detune, width: width);
+
+    OffsetOut.ar(out, DirtPan.ar(sound, ~dirt.numChannels, pan, env))
+  }).add;
+  )
+
+
+* Tidal
+  let detune = pF "detune"
+      width = pF "width"
+
+  d1 $ n "0 2 4"
+  # s "superviu"
+  # release (rand * 5)
+  # detune (rand * 10)
+  # width "0.1 0.5 0.3 0.8 0.6"
