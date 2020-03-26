@@ -1,4 +1,4 @@
-* Supercollider SynthDef template for Tidalcycles
+# Supercollider SynthDef template for Tidalcycles
 
 This template implements the bare bones of a SynthDef that works with Tidalcycles and 
 makes it available like any other sound in Tidal.
