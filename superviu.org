@@ -21,15 +21,16 @@
         OffsetOut.ar(out, DirtPan.ar(sound, ~dirt.numChannels, pan, env))
       }).add;
       )
-    3. explain NamedControl syntax
+    3. add vs. store
+    4. explain NamedControl syntax
        https://scsynth.org/t/namedcontrol-a-better-way-to-write-synthdef-arguments/186 
-    4. explain parameters
-    5. explain out
-    6. test in TidalCycles
-    7. add # detune in tidal
-    8. add 'let detune = pF "detune"'
-    9. add width parameter
-    10. let them play
+    5. explain parameters
+    6. explain out
+    7. test in TidalCycles
+    8. add # detune in tidal
+    9. add 'let detune = pF "detune"'
+    10. add width parameter
+    11. let them play
 ** finished code
   (
   SynthDef(\superviu, {
@@ -59,3 +60,8 @@
   # release (rand * 5)
   # detune (rand * 10)
   # width "0.1 0.5 0.3 0.8 0.6"
+
+* PAGAT
+Yago
+Ramon
+Algú mes
